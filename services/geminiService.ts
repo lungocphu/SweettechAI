@@ -34,11 +34,15 @@ export const analyzeProduct = async (
     Input Query: ${text}
     Target Language: ${language} (Translate all output content to this language).
     
-    If an image is provided, analyze the packaging for ingredients and product details.
+    If an image is provided, analyze the packaging for the full ingredient list (as written on the label), main ingredients, additives (E-numbers), allergen statements, manufacturer, importer details, and product attributes.
     If audio is provided, transcribe it and treat it as the product description.
     
     Perform the SweetTech R&D analysis as defined in the system instruction.
-    Use Google Search to find real competitors and prices if possible.
+    
+    CRITICAL: 
+    1. Use Google Search to find REAL competitors, REAL prices, and REAL customer reviews (Shopee, Lazada, TikTok, etc.).
+    2. If the product is imported, try to find both the manufacturer and the importer/distributor name.
+    3. For E-numbers, strictly reference Codex standards.
   `;
 
   const parts: any[] = [{ text: userPrompt }];

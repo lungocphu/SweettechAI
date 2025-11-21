@@ -18,9 +18,12 @@ export interface ProductProfile {
   price: string;
   type: string;
   origin: string;
+  manufacturer?: string;
   importer?: string;
-  ingredients: string[];
+  labelIngredients: string; // Full ingredients list from the label
+  ingredients: string[]; // Analyzed main ingredients
   additives: Array<{ code: string; name: string; function: string }>; // E-numbers analysis
+  allergens?: string[]; // Potential allergens
   specs: ProductSpecs;
 }
 
@@ -61,14 +64,26 @@ export interface Review {
   rating: number; // 1-5
 }
 
+export interface ReviewAnalysis {
+  summary: string;
+  keyThemes: string[];
+  items: Review[];
+}
+
+export interface Persona {
+  targetAudience: string;
+  expansionPotential: string[];
+}
+
 export interface AnalysisResult {
   profile: ProductProfile;
   competitors: Competitor[];
   radarChart: RadarData[];
   swot: SWOT;
   improvements: Array<{ title: string; description: string }>;
-  reviews: Review[];
+  reviews: ReviewAnalysis;
   sources: string[];
+  persona: Persona;
 }
 
 export interface ProcessingState {

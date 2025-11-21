@@ -6,6 +6,7 @@
     <title>SweetTech R&D Mate</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -43,6 +44,31 @@
       .no-scrollbar {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
+      }
+      @media print {
+        body {
+          background-color: white;
+        }
+        main {
+          margin-left: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .printable-section {
+          box-shadow: none !important;
+          border: 1px solid #e5e7eb !important;
+          margin-top: 1.5rem;
+          page-break-inside: avoid;
+        }
+        .page-break-before {
+          page-break-before: always;
+        }
+        h2, h3, h4 {
+          page-break-after: avoid;
+        }
       }
     </style>
   <script type="importmap">
