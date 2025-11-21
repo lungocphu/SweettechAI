@@ -19,7 +19,7 @@ export const analyzeProduct = async (
 
   // Using gemini-2.5-flash for speed and multimodal capabilities
   // We enable googleSearch to get real market data for benchmarking
-  const modelId = "gemini-2.5-flash";
+  const modelId = "gemini-2.5-pro";
 
   let base64Data: string | null = null;
   let mimeType: string | null = null;
